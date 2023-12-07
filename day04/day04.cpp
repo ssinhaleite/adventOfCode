@@ -12,7 +12,7 @@ int main() {
 	input.open("input.txt");
 
 	std::string line;
-	int sum = 0;
+	int result = 0;
 
 	while (std::getline(input, line)) {
 		// line always starts with "Card X: " remove it from line
@@ -64,10 +64,11 @@ int main() {
 
 		// last number
 		if (numbersFound != 0) {
-			sum += pow(2, numbersFound - 1);
+			result += pow(2, numbersFound - 1);
 		}
 	}
 
+	std::cout << "answer: " << result << std::endl;
 	input.close();
 
 	return 0;
