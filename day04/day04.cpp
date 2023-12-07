@@ -1,10 +1,10 @@
+#include <math.h>
+#include <fstream>
 #include <iostream>
+#include <set>
 #include <sstream>
 #include <string>
-#include <fstream>
 #include <vector>
-#include <set>
-#include <math.h> 
 
 int main() {
 
@@ -55,14 +55,20 @@ int main() {
 				number += line[i];
 			}
 		}
+		if (number.size() != 0) {
+			int myNumber = std::stoi(number);
+			if (winnerNumbers.find(myNumber) != winnerNumbers.end()) {
+				numbersFound++;
+			}
+		}
 
+		// last number
 		if (numbersFound != 0) {
 			sum += pow(2, numbersFound - 1);
 		}
 	}
 
 	input.close();
-	std::cout << "answer: " << sum << std::endl;
 
 	return 0;
 }
